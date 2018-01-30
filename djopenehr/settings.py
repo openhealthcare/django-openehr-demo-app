@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'django_openehr',
     'django_openehr_demo.apps.DjangoOpenehrConfig',
     'django.contrib.admin',
     'django.contrib.auth',

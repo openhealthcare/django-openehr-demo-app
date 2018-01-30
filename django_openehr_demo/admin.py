@@ -1,8 +1,8 @@
 from django.contrib import admin
-from django_openehr import models
+import django_openehr.models as ehrmodels
 
-admin.site.register(models.AddressDetails)
-admin.site.register(models.TelecomDetails)
-admin.site.register(models.Demographics)
-admin.site.register(models.SymptomSign)
-admin.site.register(models.TherapeuticDirection)
+admin.site.register(ehrmodels.AddressDetails)
+admin.site.register(ehrmodels.TelecomDetails)
+admin.site.register(ehrmodels.Demographics)
+admin.site.register(ehrmodels.SymptomSign)
+admin.site.register(ehrmodels.TherapeuticDirection)
