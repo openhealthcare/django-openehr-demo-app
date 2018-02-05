@@ -2,25 +2,29 @@
 #
 # SECTION Relevant contacts [0..*]
 # openEHR-EHR-SECTION.relevant_contacts_rcp.v1
+
 #   ADMIN_ENTRY Relevant contact [0..*]
 #   openEHR-EHR-ADMIN_ENTRY.relevant_contact_rcp.v0
 #
-#   CLUSTER Personal details
-#   openEHR-EHR-CLUSTER.individual_professional_uk.v1
-#     CLUSTER Person name
-#     openEHR-EHR-CLUSTER.person_name.v1
-#       ELEMENT Full name
-#     CLUSTER Telecom details
-#     openEHR-EHR-CLUSTER.telecom_uk.v1
-#       ELEMENT Telcoms
+#      CLUSTER Personal details
+#      openEHR-EHR-CLUSTER.individual_professional_uk.v1
+
+#        CLUSTER Person name
+#        openEHR-EHR-CLUSTER.person_name.v1
+#          ELEMENT Full name
+
+#        CLUSTER Telecom details
+#        openEHR-EHR-CLUSTER.telecom_uk.v1
+#          ELEMENT Telcoms
 #
-#   ELEMENT Professional group
+#       ELEMENT Professional group
+
 #   ELEMENT Relationship category
 #   ELEMENT Relationship
 #   ELEMENT Is next of kin?
 #   ELEMENT Note
 #   ELEMENT Date updated
-#
+
 # SECTION Admission details [0..*]
 # openEHR-EHR-SECTION.admission_details_rcp.v1
 #   ADMIN_ENTRY Inpatient admission [0..*]
