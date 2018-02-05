@@ -15,7 +15,14 @@ import os
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dj_openehr_default',
+        'USER': 'django',
+        'HOST': 'localhost',
+        'PORT': '',
+        'PASSWORD': 'django-password'
+    }
 }
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,6 +40,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
+    '127.0.0.1',
     'localhost',
     'djopenehr.herokuapp.com'
 ]
@@ -81,26 +89,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djopenehr.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
