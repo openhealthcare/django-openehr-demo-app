@@ -17,5 +17,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^demo/', include('django_openehr.urls'))
+    url(r'^$', include('django_openehr.urls'))
 ]
