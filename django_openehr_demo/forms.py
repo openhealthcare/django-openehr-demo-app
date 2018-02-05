@@ -1,3 +1,29 @@
+from django import forms
+
+def choices(*args):
+    return [(a, a) for a in args]
+
+class RelevantContactForm(forms.Form):
+    REL_CHOICES = choices('Informal Carer', 'Main Informal Carer')
+
+    full_name             = forms.CharField()
+    telecoms              = forms.CharField()
+    professional_group    = forms.CharField()
+    relationship_category = forms.ChoiceField(choices=REL_CHOICES)
+    relationship          = forms.CharField()
+    is_next_of_kin        = forms.BooleanField()
+    note                  = forms.CharField()
+
+
+class AdmissionForm(forms.Form):
+    date_of_admission = forms.DateField()
+    presenting_problem = forms.CharField()
+
+class AllergiesForm(forms.Form):
+    causative_agent = forms.CharField()
+    reaction        = forms.CharField()
+    date_recorded   = forms.DateField()
+
 # IDCR Transfer of Care summary (minimal)
 #
 # SECTION Relevant contacts [0..*]

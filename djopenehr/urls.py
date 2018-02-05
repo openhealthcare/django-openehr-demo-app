@@ -15,7 +15,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from django_openehr_demo import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^formy/', views.transfer_care),
     url(r'^$', include('django_openehr.urls'))
 ]
