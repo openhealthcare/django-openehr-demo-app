@@ -1,2 +1,5 @@
 # Open Health Care UK packages
-django_openehr
+Django==2.0.1
+-e git+git@github.com:openhealthcare/django-openehr.git@master#egg=django_openehr
+django-shortcuts==1.5
+pytz==2017.3
