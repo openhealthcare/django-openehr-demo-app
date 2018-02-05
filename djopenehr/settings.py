@@ -15,14 +15,7 @@ import os
 import dj_database_url
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dj_openehr_default',
-        'USER': 'django',
-        'HOST': 'localhost',
-        'PORT': '',
-        'PASSWORD': 'django-password'
-    }
+    'default': dj_database_url.config()
 }
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
