@@ -1,5 +1,7 @@
 # Open Health Care UK packages
 Django==2.0.1
+gunicorn==19.7.1
+dj-database-url==0.4.2
 -e git+https://github.com/openhealthcare/django-openehr.git@master#egg=django_openehr
 django-shortcuts==1.5
 pytz==2017.3
