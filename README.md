@@ -14,9 +14,8 @@ To try this application:
 * `python manage.py migrate` to set up the database
 * `python manage.py createsuperuser` (enter some super user details)
 * `python manage.py runserver`
-
-* navigate to localhost:8000/admin/ to log in and interact with the models using the Django admin interface.
-
+* navigate to `localhost:8000/admin/` to log in and interact with the models using the Django admin interface.
+* navigate to `localhost:8000/IDCR-transfer-of-care/` to see the Django Form that has been (semi)-automatically created using the information in the Django Models. (Semi-automatic in that the fields, validation and helptext are all drawn from the Models automatically. Structure and layout of the form were, of course, manual)
 * You can also use the Django shell (`python manage.py shell` to manipulate the new classes.)
 
 -----
