@@ -21,8 +21,8 @@ To try this application:
 
 -----
 
-# IDCR Transfer of Care summary (minimal)
-#### Human-readable transliteration
+# Template: IDCR Transfer of Care summary (minimal)
+(Human-readable transliteration)
 
 ## SECTION Relevant contacts [0..*]
 openEHR-EHR-SECTION.relevant_contacts_rcp.v1
