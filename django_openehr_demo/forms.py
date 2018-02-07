@@ -117,24 +117,41 @@ class AllergiesForm(forms.ModelForm):
 
 
 # SECTION Diagnoses [0..*]
-#   EVALUATION Problem/diagnosis summary [0..*]
-#   openEHR-EHR-EVALUATION.problem_diagnosis.v1
-#     ELEMENT Diagnosis [1..1]
-#     ELEMENT Clinical description
-#     ELEMENT Date/time clinically recognised
-#     ELEMENT Comment
-#     ELEMENT Last updated
-#
 # SECTION Problems and issues [0..*]
-#   EVALUATION Problem/diagnosis summary [0..*]
-#   openEHR-EHR-EVALUATION.problem_diagnosis.v1
-#     ELEMENT Diagnosis [1..1]
-#     ELEMENT Clinical description
-#     ELEMENT Date/time clinically recognised
-#     ELEMENT Comment
-#     ELEMENT Last updated
-#
+class ProblemDiagnosisSummaryForm(forms.ModelForm):
+    #   EVALUATION Problem/diagnosis summary [0..*]
+    #   openEHR-EHR-EVALUATION.problem_diagnosis.v1
+    class Meta:
+        model = ehrmodels.ProblemDiagnosis
+        fields = [
+            'problem_diagnosis_name',  # ELEMENT Diagnosis [1..1]
+            'clinical_description',    # ELEMENT Clinical description
+            'recognition_date_time',   # ELEMENT Date/time clinically recognised
+            'comment',                 # ELEMENT Comment
+            'last_updated',            # ELEMENT Last updated
+        ]
+
+
+# SECTION Problems and issues [0..*]
+# EVALUATION Problem/diagnosis summary [0..*]
+class ProblemsIssuesForm(forms.ModelForm):
+    # openEHR-EHR-EVALUATION.problem_diagnosis.v1
+    # This is using a second instance of the same archetype as the preceding field
+    class Meta:
+        model = ehrmodels.ProblemDiagnosis
+        fields = [
+            'problem_diagnosis_name',  # ELEMENT Diagnosis [1..1]
+            'clinical_description',    # ELEMENT Clinical description
+            'recognition_date_time',   # ELEMENT Date/time clinically recognised
+            'comment',                 # ELEMENT Comment
+            'last_updated',            # ELEMENT Last updated
+        ]
+
+
 # SECTION Clinical Summary [0..*]
-#   EVALUATION Clinical Synopsis [0..*]
-#   openEHR-EHR-EVALUATION.clinical_synopsis.v1
-#     ELEMENT Summary [1..1]
+class ClinicalSynopsisForm(forms.ModelForm):
+    #   EVALUATION Clinical Synopsis [0..*]
+    #   openEHR-EHR-EVALUATION.clinical_synopsis.v1
+    class Meta:
+        model = ehrmodels.ClinicalSynopsis
+        fields = ['synopsis']  # ELEMENT Summary [1..1]

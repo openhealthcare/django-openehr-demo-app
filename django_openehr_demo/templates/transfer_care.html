@@ -116,6 +116,13 @@
   <!-- ELEMENT Date/time clinically recognised -->
   <!-- ELEMENT Comment -->
   <!-- ELEMENT Last updated -->
+  <h2>Diagnoses Made</h2>
+  {{ problem_diagnosis_formset.management_form }}
+  <table>
+    {% for form in problem_diagnosis_formset %}
+      {{ form }}
+    {% endfor %}
+  </table>
 
   <!-- SECTION Problems and issues [0..*] -->
   <!-- EVALUATION Problem/diagnosis summary [0..*] -->
@@ -125,11 +132,25 @@
   <!-- ELEMENT Date/time clinically recognised -->
   <!-- ELEMENT Comment -->
   <!-- ELEMENT Last updated -->
+  <h2>Problems and Issues Identified</h2>
+  {{ problems_issues_formset.management_form }}
+  <table>
+    {% for form in problems_issues_formset %}
+      {{ form }}
+    {% endfor %}
+  </table>
 
   <!-- SECTION Clinical Summary [0..*] -->
   <!-- EVALUATION Clinical Synopsis [0..*] -->
   <!-- openEHR-EHR-EVALUATION.clinical_synopsis.v1 -->
   <!-- ELEMENT Summary [1..1] -->
+  <h2>Clinical Summary</h2>
+  {{ clinical_synopsis_formset.management_form }}
+  <table>
+    {% for form in clinical_synopsis_formset %}
+      {{ form }}
+    {% endfor %}
+  </table>
 
   <input type="submit">
 
