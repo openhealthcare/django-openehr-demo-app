@@ -107,3 +107,4 @@ venv.bak/
 db.*
 # Emacs save files
 *~
+djopenehr/djopenehr.sqlite

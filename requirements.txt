@@ -11,4 +11,4 @@ django-fontawesome==0.3.1
 
 
 # OHCUK repositories on GitHub
--e git+https://github.com/openhealthcare/django-openehr.git@master#egg=django_openehr
+#-e git+https://github.com/openhealthcare/django-openehr.git@master#egg=django_openehr
