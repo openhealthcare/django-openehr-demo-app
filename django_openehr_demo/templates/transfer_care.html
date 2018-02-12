@@ -1,84 +1,99 @@
-{% load bootstrap3 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+{% extends 'django_openehr_demo/base.html' %}
 
-<!-- IDCR Transfer of Care summary (minimal) -->
-<!-- openEHR Template implemented as a Django form-->
-<!-- 2-level modelling is possible in a similar way to openEHR-->
+{% block content %}
 
-<h1>IDCR Transfer of Care summary</h1>
+  {% load fontawesome %}
+  {% load bootstrap3 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
 
-{% bootstrap_messages %}
 
-<form method="post" action="" class="form">
-  {% csrf_token %}
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="nav navbar-nav navbar-left">
+          <h1>Django IDCR Transfer of Care Summary</h1>
+          <p>openEHR Template implemented as a Django Form <a href="https://github.com/openhealthcare/django-openehr-demo-app/tree/master/django_openehr_demo">[source code]</a></p>
+          <p>backed by openEHR Archetypes implemented as Django Models <a href="https://github.com/openhealthcare/django-openehr/tree/master/django_openehr/models">[source code]</a></p>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><h1><a href="#"> {% fontawesome_icon 'github' large=True li=True %} </a></h1></li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- SECTION Relevant contacts [0..*] -->
-  <!-- openEHR-EHR-SECTION.relevant_contacts_rcp.v1 -->
-  <h2>Relevant Contacts</h2>
-  <h3>Professional's Details</h3>
-  {{ demographic_professional_formset.management_form }}
-  {% bootstrap_formset demographic_professional_formset layout='horizontal' %}
+    <div class="container">
+      {% bootstrap_messages %}
 
-  <!-- ADMIN_ENTRY Relevant contact [0..*] -->
-  <!-- openEHR-EHR-ADMIN_ENTRY.relevant_contact_rcp.v0 -->
-  <h3>Relevant Contact Details</h3>
-  {{ relevant_contact_formset.management_form }}
-  {% bootstrap_formset relevant_contact_formset layout='horizontal' %}
+      <form method="post" action="" class="form">
+        {% csrf_token %}
 
-  <!-- SECTION Admission details [0..*] -->
-  <!-- openEHR-EHR-SECTION.admission_details_rcp.v1 -->
-  <!-- ADMIN_ENTRY Inpatient admission [0..*] -->
-  <!-- openEHR-EHR-ADMIN_ENTRY.inpatient_admission_uk.v1 -->
-  <h2>Admission</h2>
-  {{ admission_formset.management_form }}
-  {% bootstrap_formset admission_formset layout='horizontal' %}
+        <!-- SECTION Relevant contacts [0..*] -->
+        <!-- openEHR-EHR-SECTION.relevant_contacts_rcp.v1 -->
+        <h2>Relevant Contacts</h2>
 
-  <!-- EVALUATION Reason for Encounter [0..*] -->
-  <!-- openEHR-EHR-EVALUATION.reason_for_encounter.v1 -->
-  <h2>Presenting Problem</h2>
-  {{ reason_for_encounter_formset.management_form }}
-  {% bootstrap_formset reason_for_encounter_formset layout='horizontal' %}
+        <h3>Professional's Details</h3>
+        {{ demographic_professional_formset.management_form }}
+        {% bootstrap_formset demographic_professional_formset layout='horizontal' %}
 
-  <!-- SECTION Allergies and adverse reactions [1..1] -->
-  <!-- openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1 -->
-  <!-- EVALUATION Adverse reaction [0..*] -->
-  <!-- openEHR-EHR-EVALUATION.adverse_reaction_uk.v1 -->
-  <h2>Allergies</h2>
-  {{ allergies_formset.management_form }}
-  {% bootstrap_formset allergies_formset layout='horizontal' %}
+        <!-- ADMIN_ENTRY Relevant contact [0..*] -->
+        <!-- openEHR-EHR-ADMIN_ENTRY.relevant_contact_rcp.v0 -->
+        <h3>Relevant Contact Details</h3>
+        {{ relevant_contact_formset.management_form }}
+        {% bootstrap_formset relevant_contact_formset layout='horizontal' %}
 
-  <!-- SECTION Medication and medical devices -->
-  <!-- openEHR-EHR-SECTION.medication_medical_devices_rcp.v1 -->
-  <!-- SECTION Current medication -->
-  <!-- openEHR-EHR-SECTION.current_medication_rcp.v1 -->
+        <!-- SECTION Admission details [0..*] -->
+        <!-- openEHR-EHR-SECTION.admission_details_rcp.v1 -->
+        <!-- ADMIN_ENTRY Inpatient admission [0..*] -->
+        <!-- openEHR-EHR-ADMIN_ENTRY.inpatient_admission_uk.v1 -->
+        <h2>Admission</h2>
+        {{ admission_formset.management_form }}
+        {% bootstrap_formset admission_formset layout='horizontal' %}</p>
 
-  <!-- SECTION Diagnoses [0..*] -->
-  <!-- EVALUATION Problem/diagnosis summary [0..*] -->
-  <!-- openEHR-EHR-EVALUATION.problem_diagnosis.v1 -->
-  <h2>Diagnoses Made</h2>
-  {{ problem_diagnosis_formset.management_form }}
-  {% bootstrap_formset problem_diagnosis_formset layout='horizontal' %}
+        <!-- EVALUATION Reason for Encounter [0..*] -->
+        <!-- openEHR-EHR-EVALUATION.reason_for_encounter.v1 -->
+        <h2>Presenting Problem</h2>
+        {{ reason_for_encounter_formset.management_form }}
+        {% bootstrap_formset reason_for_encounter_formset layout='horizontal' %}
 
-  <!-- SECTION Problems and issues [0..*] -->
-  <!-- EVALUATION Problem/diagnosis summary [0..*] -->
-  <!-- openEHR-EHR-EVALUATION.problem_diagnosis.v1 -->
-  <h2>Problems and Issues Identified</h2>
-  {{ problems_issues_formset.management_form }}
-  {% bootstrap_formset problems_issues_formset layout='horizontal' %}
+        <!-- SECTION Allergies and adverse reactions [1..1] -->
+        <!-- openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1 -->
+        <!-- EVALUATION Adverse reaction [0..*] -->
+        <!-- openEHR-EHR-EVALUATION.adverse_reaction_uk.v1 -->
+        <h2>Allergies</h2>
+        {{ allergies_formset.management_form }}
+        {% bootstrap_formset allergies_formset layout='horizontal' %}
+      <!-- SECTION Medication and medical devices -->
+      <!-- openEHR-EHR-SECTION.medication_medical_devices_rcp.v1 -->
+      <!-- SECTION Current medication -->
+      <!-- openEHR-EHR-SECTION.current_medication_rcp.v1 -->
 
-  <!-- SECTION Clinical Summary [0..*] -->
-  <!-- EVALUATION Clinical Synopsis [0..*] -->
-  <!-- openEHR-EHR-EVALUATION.clinical_synopsis.v1 -->
-  <h2>Clinical Summary</h2>
-  {{ clinical_synopsis_formset.management_form }}
+        <!-- SECTION Diagnoses [0..*] -->
+        <!-- EVALUATION Problem/diagnosis summary [0..*] -->
+        <!-- openEHR-EHR-EVALUATION.problem_diagnosis.v1 -->
+        <h2>Diagnoses Made</h2>
+        {{ problem_diagnosis_formset.management_form }}
+        {% bootstrap_formset problem_diagnosis_formset layout='horizontal' %}
 
-  {% bootstrap_formset clinical_synopsis_formset layout='horizontal' %}
+        <!-- SECTION Problems and issues [0..*] -->
+        <!-- EVALUATION Problem/diagnosis summary [0..*] -->
+        <!-- openEHR-EHR-EVALUATION.problem_diagnosis.v1 -->
+        <h2>Problems and Issues Identified</h2>
+        {{ problems_issues_formset.management_form }}
+        {% bootstrap_formset problems_issues_formset layout='horizontal' %}
 
-  {% buttons %}
-    <button type="submit" class="btn btn-primary">
-      Submit
-    </button>
-  {% endbuttons %}
+        <!-- SECTION Clinical Summary [0..*] -->
+        <!-- EVALUATION Clinical Synopsis [0..*] -->
+        <!-- openEHR-EHR-EVALUATION.clinical_synopsis.v1 -->
+        <h2>Clinical Summary</h2>
+        {{ clinical_synopsis_formset.management_form }}
+        {% bootstrap_formset clinical_synopsis_formset layout='horizontal' %}
 
-</form>
+        {% buttons %}
+          <button type="submit" class="btn btn-primary">
+            Submit Transfer of Care Summary
+          </button>
+        {% endbuttons %}
+      </form>
+    </div>
+  </div>
+{% endblock %}
