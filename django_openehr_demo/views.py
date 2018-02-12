@@ -1,5 +1,9 @@
+"""
+Views for our Django openEHR demo app
+"""
+from django.db import transaction
 from django.forms import formset_factory
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django_openehr_demo.forms import (
     AdmissionForm,
@@ -33,9 +37,29 @@ def transfer_care(request):
         problems_issues_formset = ProblemsIssuesFormset(request.POST, request.FILES, prefix='probissue')
         relevant_contact_formset = RelevantContactFormset(request.POST, request.FILES, prefix='relevantcontacts')
         reason_for_encounter_formset = ReasonForEncounterFormSet(request.POST, request.FILES, prefix='reasonforenc')
-        if False: # iterate through all calling .is_valid()
-            # Save them
-            pass
+
+        to_save = [
+            admission_formset,
+            allergies_formset,
+            clinical_synopsis_formset,
+            demographic_professional_formset,
+            problem_diagnosis_formset,
+            problems_issues_formset,
+            relevant_contact_formset,
+            reason_for_encounter_formset,
+        ]
+
+
+        if clinical_synopsis_formset.is_valid():
+            with transaction.atomic():
+                for form in clinical_synopsis_formset:
+                    form.save()
+                return redirect('/my-new-url/')
+        else:
+            pass # Something is invalid. If we just let the call to
+        # render() below handle this, it will take the POSTed data
+        # and display it in the form along with any error messages.
+
     else:
         admission_formset = AdmissionFormset(prefix='admissions')
         allergies_formset = AllergiesFormset(prefix='allergies')
