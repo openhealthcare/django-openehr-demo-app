@@ -3,6 +3,7 @@ import django_openehr.models as ehrmodels
 
 admin.site.register(ehrmodels.AddressDetails)
 admin.site.register(ehrmodels.AdverseReaction)
+admin.site.register(ehrmodels.ClinicalSynopsis)
 admin.site.register(ehrmodels.DemographicPersonal)
 admin.site.register(ehrmodels.DemographicProfessional)
 admin.site.register(ehrmodels.Identifier)
