@@ -17,8 +17,10 @@ from django.contrib import admin
 
 from django_openehr_demo import views
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^IDCR-transfer-of-care/', views.transfer_care),
-    url(r'', include('django_openehr.urls'))
+    url(r'', include('django_openehr.urls')),
+    url(r'^toc/(?P<pk>\d+)/?$', views.TransferOfCareSummaryView.as_view(), name='transfer_of_care_detail'),
 ]

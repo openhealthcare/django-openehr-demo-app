@@ -2,24 +2,9 @@
 
 {% block content %}
 
-  {% load fontawesome %}
   {% load bootstrap3 %}
   {% bootstrap_css %}
   {% bootstrap_javascript %}
-
-
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="nav navbar-nav navbar-left">
-          <h1>Django IDCR Transfer of Care Summary</h1>
-          <p>openEHR Template for IDCR ToC Summary implemented as a Django Form <a href="https://github.com/openhealthcare/django-openehr-demo-app/tree/master/django_openehr_demo">[source code]</a></p>
-          <p>backed by openEHR Archetypes implemented as Django Models <a href="https://github.com/openhealthcare/django-openehr/tree/master/django_openehr/models">[source code]</a></p>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li><h1><a href="#"> {% fontawesome_icon 'github' large=True li=True %} </a></h1></li>
-        </ul>
-      </div>
-    </nav>
 
     <div class="container">
       {% bootstrap_messages %}

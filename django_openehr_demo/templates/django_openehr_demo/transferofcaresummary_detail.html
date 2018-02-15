@@ -1,0 +1,167 @@
+{% extends 'django_openehr_demo/base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="panel panel-info">
+    <!-- SECTION Relevant contacts [0..*] -->
+    <!-- openEHR-EHR-SECTION.relevant_contacts_rcp.v1 -->
+    <div class="panel-heading">
+      <h2>Relevant Contacts</h2>
+    </div>
+    <div class="panel-body">
+
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3>Professional's Details</h3>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-3">Person name</div>
+          <div class="col-md-9">{{ object.demographic_professional.person_name }}</div>
+          <div class="col-md-3">Telecom details</div>
+          <div class="col-md-9">{{ object.demographic_professional.telecom_details }}</div>
+          <div class="col-md-3">Professional group</div>
+          <div class="col-md-9">{{ object.demographic_professional.professional_group }}</div>
+          <div class="help-block">The professional group or speciality of the professional</div>
+        </div>
+      </div>
+
+      <div class="panel panel-info">
+        <!-- ADMIN_ENTRY Relevant contact [0..*] -->
+        <!-- openEHR-EHR-ADMIN_ENTRY.relevant_contact_rcp.v0 -->
+        <div class="panel-heading">
+          <h3>Relevant Contact Details</h3>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-3">Relationship category</div>
+          <div class="col-md-9">{{ object.relevant_contact.relationship_category }}</div>
+          <div class="help-block">The broad category of care relationship which the contact holds with the subject.</div>
+
+          <div class="col-md-3">Relationship</div>
+          <div class="col-md-9">{{ object.relevant_contact.relationship }}</div>
+          <div class="help-block">For an informal carer, the personal relationship with the client/carer e.g spouse or friend . For a formal carer, the professional role or responsibility of the carer with respect to the person which should help identify them as being an appropriate contact for an aspect of care, usually a professional role or care pathway name.</div>
+
+          <div class="col-md-3">Is next of kin</div>
+          <div class="col-md-9">{{ object.relevant_contact.is_next_of_kin }}</div>
+          <div class="help-block">True if this informal carer is the person's next-of-kin</div>
+
+          <div class="col-md-3">Relationship note</div>
+          <div class="col-md-9">{{ object.relevant_contact.relationship_note }}</div>
+          <div class="help-block">Any additional comment or note about the healthcare professional or carer or their role</div>
+
+          <div class="col-md-3">Date updated</div><div class="col-md-9">{{ object.relevant_contact.date_updated }}</div>
+          <div class="help-block">The date at which the list of key contacts was created or updated.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <!-- SECTION Admission details [0..*] -->
+    <!-- openEHR-EHR-SECTION.admission_details_rcp.v1 -->
+    <!-- ADMIN_ENTRY Inpatient admission [0..*] -->
+    <!-- openEHR-EHR-ADMIN_ENTRY.inpatient_admission_uk.v1 -->
+    <div class="panel-heading">
+      <h2>Admission</h2>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-3">Date of admission: </div><div class="col-md-9">{{ object.admission.date_of_admission }}</div>
+      <div class="help-block">Date patient admitted to hospital</div>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <!-- EVALUATION Reason for Encounter [0..*] -->
+    <!-- openEHR-EHR-EVALUATION.reason_for_encounter.v1 -->
+    <div class="panel-heading">
+      <h2>Presenting Problem</h2>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-3">Presenting problem</div>
+      <div class="col-md-9">{{ object.reason_for_encounter.presenting_problem }}</div>
+      <div class="help-block">Identification of the clinical or social problem motivating the subject of care to seeking healthcare.</div>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <!-- SECTION Allergies and adverse reactions [1..1] -->
+    <!-- openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1 -->
+    <!-- EVALUATION Adverse reaction [0..*] -->
+    <!-- openEHR-EHR-EVALUATION.adverse_reaction_uk.v1 -->
+    <div class="panel-heading">
+      <h2>Allergies</h2>
+    </div>
+
+    <div class="panel-body">
+      <div class="col-md-3">Causative agent</div>
+      <div class="col-md-9">{{ object.allergies.causative_agent }}</div>
+      <div class="help-block">Details of the agent or medicinal substance believed to be the cause of the adverse reaction or allergy</div>
+
+      <div class="col-md-3">Reaction snomed code</div>
+      <div class="col-md-9">{{ object.allergies.reaction_snomed_code }}</div>
+      <div class="help-block">An optional pre-coordinated unqualified SNOMED-CT code for the nature of the reaction produced by the drug allergy</div>
+
+      <div class="col-md-3">Date recorded</div>
+      <div class="col-md-9">{{ object.allergies.date_recorded }}</div>
+      <div class="help-block">The date that the reaction was clinically recorded/asserted. This will often equate to the date of  # onset of the reaction but this may not be wholly clear from source data</div>
+    </div>
+  </div>
+
+  <!-- SECTION Medication and medical devices -->
+  <!-- openEHR-EHR-SECTION.medication_medical_devices_rcp.v1 -->
+  <!-- SECTION Current medication -->
+  <!-- openEHR-EHR-SECTION.current_medication_rcp.v1 -->
+  <div class="panel panel-info">
+    <!-- SECTION Diagnoses [0..*] -->
+    <!-- EVALUATION Problem/diagnosis summary [0..*] -->
+    <!-- openEHR-EHR-EVALUATION.problem_diagnosis.v1 -->
+    <div class="panel-heading">
+      <h2>Diagnoses Made</h2>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-3">Problem/Diagnosis name</div>
+      <div class="col-md-9">{{ object.diagnoses.problem_diagnosis_name }}</div>
+      <div class="help-block">Identification of the problem or diagnosis, by name</div>
+
+      <div class="col-md-3">Clinical description</div>
+      <div class="col-md-9">{{ object.diagnoses.clinical_description }}</div>
+      <div class="help-block">Narrative description about the problem or diagnosis</div>
+
+      <div class="col-md-3">Recognition date time</div>
+      <div class="col-md-9">{{ object.diagnoses.recognition_date_time }}</div>
+      <div class="help-block">Estimated or actual date/time the diagnosis or problem was recognised by a healthcare professional.</div>
+
+      <div class="col-md-3">Comment</div>
+      <div class="col-md-9">{{ object.diagnoses.comment }}</div>
+      <div class="help-block">Any random comment you can't fit into one of the other 572 fields in this archetype</div>
+
+      <div class="col-md-3">Last updated</div>
+      <div class="col-md-9">{{ object.diagnoses.last_updated }}</div>
+      <div class="help-block">The date this problem or diagnosis was last updated</div>
+    </div>
+  </div>
+
+  <!-- SECTION Problems and issues [0..*] -->
+  <!-- EVALUATION Problem/diagnosis summary [0..*] -->
+  <!-- openEHR-EHR-EVALUATION.problem_diagnosis.v1 -->
+  <!-- <h2>Problems and Issues Identified</h2> -->
+
+  <div class="panel panel-info">
+    <!-- SECTION Clinical Summary [0..*] -->
+    <!-- EVALUATION Clinical Synopsis [0..*] -->
+    <!-- openEHR-EHR-EVALUATION.clinical_synopsis.v1 -->
+    <div class="panel-heading">
+      <h2>Clinical Summary</h2>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-3">Synopsis</div>
+      <div class="col-md-9">{{ object.clinical_synopsis.synopsis }}</div>
+      <div class="help-block">The summary, assessment, conclusions or evaluation of the clinical findings</div>
+    </div>
+  </div>
+
+</div> <!-- div class="container" -->
+
+{% endblock %}

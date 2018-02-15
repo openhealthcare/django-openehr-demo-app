@@ -4,6 +4,10 @@ Views for our Django openEHR demo app
 from django.db import transaction
 from django.forms import formset_factory
 from django.shortcuts import render, redirect
+from django_openehr_demo.models import TransferOfCareSummary
+from django_openehr import models as ehrmodels
+from django.views.generic.detail import DetailView
+
 
 from django_openehr_demo.forms import (
     AdmissionForm,
@@ -38,23 +42,23 @@ def transfer_care(request):
         relevant_contact_formset = RelevantContactFormset(request.POST, request.FILES, prefix='relevantcontacts')
         reason_for_encounter_formset = ReasonForEncounterFormSet(request.POST, request.FILES, prefix='reasonforenc')
 
-        to_save = [
-            admission_formset,
-            allergies_formset,
-            clinical_synopsis_formset,
-            demographic_professional_formset,
-            problem_diagnosis_formset,
-            problems_issues_formset,
-            relevant_contact_formset,
-            reason_for_encounter_formset,
-        ]
+        formset_dict = {
+            'demographic_professional': demographic_professional_formset,
+            'relevant_contact': relevant_contact_formset,
+            'admission': admission_formset,
+            'reason_for_encounter': reason_for_encounter_formset,
+            'allergies': allergies_formset,
+            'diagnoses': problem_diagnosis_formset,
+            'clinical_synopsis': clinical_synopsis_formset,
+            # problems_issues_formset,
+        }
 
-
-        if clinical_synopsis_formset.is_valid():
+        if validate_formsets(formset_dict):
             with transaction.atomic():
-                for form in clinical_synopsis_formset:
-                    form.save()
-                return redirect('/my-new-url/')
+                transfer_of_care = TransferOfCareSummary()
+                save_all_the_formsets(formset_dict, transfer_of_care)
+                transfer_of_care.save()
+                return redirect(transfer_of_care.get_absolute_url())
         else:
             pass # Something is invalid. If we just let the call to
         # render() below handle this, it will take the POSTed data
@@ -80,3 +84,23 @@ def transfer_care(request):
         'reason_for_encounter_formset': reason_for_encounter_formset,
         'relevant_contact_formset': relevant_contact_formset,
     })
+
+
+def validate_formsets(formset_dict):
+    formsets_are_all_valid = True
+    for formset_name, formset_object in formset_dict.items():
+        if formset_object.is_valid():
+            pass
+        else:
+            formsets_are_all_valid = False
+    return formsets_are_all_valid
+
+
+def save_all_the_formsets(formset_dict, transfer_of_care):
+    for formset_name, formset_object in formset_dict.items():
+        for form in formset_object:
+            setattr(transfer_of_care, formset_name, form.save())
+
+
+class TransferOfCareSummaryView(DetailView):
+    model = TransferOfCareSummary
