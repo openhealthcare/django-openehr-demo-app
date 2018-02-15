@@ -9,6 +9,5 @@ pytz==2017.3
 static3==0.7.0
 django-fontawesome==0.3.1
 
-
 # OHCUK repositories on GitHub
-#-e git+https://github.com/openhealthcare/django-openehr.git@master#egg=django_openehr
+-e git+https://github.com/openhealthcare/django-openehr.git@master#egg=django_openehr
