@@ -43,14 +43,14 @@ def transfer_care(request):
         reason_for_encounter_formset = ReasonForEncounterFormSet(request.POST, request.FILES, prefix='reasonforenc')
 
         formset_dict = {
-            'demographic_professional': demographic_professional_formset,
-            'relevant_contact': relevant_contact_formset,
             'admission': admission_formset,
-            'reason_for_encounter': reason_for_encounter_formset,
             'allergies': allergies_formset,
-            'diagnoses': problem_diagnosis_formset,
             'clinical_synopsis': clinical_synopsis_formset,
+            'demographic_professional': demographic_professional_formset,
+            'diagnoses': problem_diagnosis_formset,
             # problems_issues_formset,
+            'reason_for_encounter': reason_for_encounter_formset,
+            'relevant_contact': relevant_contact_formset,
         }
 
         if validate_formsets(formset_dict):
