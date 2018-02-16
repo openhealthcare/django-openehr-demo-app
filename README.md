@@ -1,7 +1,7 @@
 # Django-openEHR Demo Application
 alpha | unsupported
 
-heroku link
+[Try out the live demo](https://djopenehr.herokuapp.com/IDCR-transfer-of-care/)
 
 This repository contains a demo application for the [django-openehr](https://pypi.python.org/pypi/django_openehr) models library.
 
