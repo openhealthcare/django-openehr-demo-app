@@ -11,11 +11,12 @@ To try this application:
 * `cd` into the cloned directory
 * (create a new virtualenv, if you are a virtualenv user)
 * `pip install -r requirements.txt` to install dependencies
-* `python manage.py migrate` to set up the database
+* `python manage.py migrate` to set up the database (this application is set up to use PostgresQL, so if you don't have this installed you may need to install it for your platform - I suggest googling for instructions specific to your platform. Alternatively, if you are familiar with Django you can change the DATABASES information in `settings.py` to an alternative DB)
 * `python manage.py createsuperuser` (enter some super user details)
 * `python manage.py runserver`
 * navigate to `localhost:8000/admin/` to log in and interact with the models using the Django admin interface.
 * navigate to `localhost:8000/IDCR-transfer-of-care/` to see the Django Form that has been (semi)-automatically created using the information in the Django Models. (Semi-automatic in that the fields, validation and helptext are all drawn from the Models automatically. Structure and layout of the form were, of course, manual)
+* upon submission of valid data in the form, you will be redirected to a simple detail view of that data.
 * You can also use the Django shell (`python manage.py shell` to manipulate the new classes.)
 
 -----
