@@ -1,5 +1,6 @@
 # Django-openEHR Demo Application
-alpha | unsupported
+
+Experimental | Not officially supported by OHCUK
 
 [Try out the live demo](https://djopenehr.herokuapp.com/IDCR-transfer-of-care/)
 
@@ -62,48 +63,6 @@ openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1
     ELEMENT Causative agent [1..1] ELEMENT   OR   ELEMENT
     ELEMENT Reaction
     ELEMENT Date recorded
-
-## SECTION Medication and medical devices
-openEHR-EHR-SECTION.medication_medical_devices_rcp.v1
-  ### SECTION Current medication
-  openEHR-EHR-SECTION.current_medication_rcp.v1
-  ### EVALUATION Medication statement [0..*]
-  openEHR-EHR-EVALUATION.medication_statement_uk.v1
-
-    * ELEMENT Medication name [1..1]
-    * ELEMENT Form ELEMENT   OR   ELEMENT
-    * ELEMENT Route ELEMENT   OR   ELEMENT
-    * ELEMENT Dose amount description
-    * ELEMENT Dose timing description
-    * ELEMENT
-    * ELEMENT Monitoring [0..*]
-    * ELEMENT Course status
-    * ELEMENT Indication
-    * ELEMENT Comment / recommendation [0..*]
-    * CLUSTER First authorised
-      * ELEMENT Date first authorised
-    * CLUSTER Last administered
-      * ELEMENT Date last administered
-    * CLUSTER Administration details
-    * CLUSTER Product
-      * ELEMENT Expiry date
-      * ELEMENT Batch number
-    * CLUSTER Changed
-      * ELEMENT Date changed
-    * CLUSTER Medication change detail
-    * CLUSTER Adjustment
-      * ELEMENT Reason adjusted
-    * CLUSTER Last dispensed
-      * ELEMENT Date last dispensed
-    * CLUSTER Last dispensed details
-    * CLUSTER Product
-    * CLUSTER Quantity dispensed
-      * ELEMENT Quantity description
-    * CLUSTER Discontinued
-      * ELEMENT Date discontinued
-    * CLUSTER Discontinued details
-    * CLUSTER Discontinutation
-      * ELEMENT Reason discontinued [0..*]
 
 ## SECTION Diagnoses [0..*]
   ### EVALUATION Problem/diagnosis summary [0..*]
