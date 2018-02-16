@@ -25,64 +25,62 @@ To try this application:
 # Template: IDCR Transfer of Care summary (minimal)
 (Human-readable transliteration)
 
-## SECTION Relevant contacts [0..*]
+### SECTION Relevant contacts [0..*]
 openEHR-EHR-SECTION.relevant_contacts_rcp.v1
-  ### ADMIN_ENTRY Relevant contact [0..*]
-  openEHR-EHR-ADMIN_ENTRY.relevant_contact_rcp.v0
+#### ADMIN_ENTRY Relevant contact [0..*]
+openEHR-EHR-ADMIN_ENTRY.relevant_contact_rcp.v0
+#### CLUSTER Personal details
+openEHR-EHR-CLUSTER.individual_professional_uk.v1
+#### CLUSTER Person name
+openEHR-EHR-CLUSTER.person_name.v1
+ELEMENT Full name
+#### CLUSTER Telecom details
+openEHR-EHR-CLUSTER.telecom_uk.v1
+ELEMENT Telcoms
+ELEMENT Professional group
+ELEMENT Relationship category
+ELEMENT Relationship
+ELEMENT Is next of kin?
+ELEMENT Note
+ELEMENT Date updated
 
-  ### CLUSTER Personal details
-  openEHR-EHR-CLUSTER.individual_professional_uk.v1
-    #### CLUSTER Person name
-    openEHR-EHR-CLUSTER.person_name.v1
-      ELEMENT Full name
-    #### CLUSTER Telecom details
-    openEHR-EHR-CLUSTER.telecom_uk.v1
-      ELEMENT Telcoms
-
-  ELEMENT Professional group
-  ELEMENT Relationship category
-  ELEMENT Relationship
-  ELEMENT Is next of kin?
-  ELEMENT Note
-  ELEMENT Date updated
-
-## SECTION Admission details [0..*]
+### SECTION Admission details [0..*]
 openEHR-EHR-SECTION.admission_details_rcp.v1
-  ### ADMIN_ENTRY Inpatient admission [0..*]
-  openEHR-EHR-ADMIN_ENTRY.inpatient_admission_uk.v1
-    ELEMENT Date of admission
+#### ADMIN_ENTRY Inpatient admission [0..*]
+openEHR-EHR-ADMIN_ENTRY.inpatient_admission_uk.v1
+ELEMENT Date of admission
 
-  ### EVALUATION Reason for Encounter [0..*]
-  openEHR-EHR-EVALUATION.reason_for_encounter.v1
-    ELEMENT Presenting Problem [0..*]
+#### EVALUATION Reason for Encounter [0..*]
+openEHR-EHR-EVALUATION.reason_for_encounter.v1
+ELEMENT Presenting Problem [0..*]
 
-## SECTION Allergies and adverse reactions [1..1]
+### SECTION Allergies and adverse reactions [1..1]
 openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1
-  ### EVALUATION Adverse reaction [0..*]
-  openEHR-EHR-EVALUATION.adverse_reaction_uk.v1
-    ELEMENT Causative agent [1..1] ELEMENT   OR   ELEMENT
-    ELEMENT Reaction
-    ELEMENT Date recorded
+### EVALUATION Adverse reaction [0..*]
+openEHR-EHR-EVALUATION.adverse_reaction_uk.v1
+ELEMENT Causative agent [1..1] ELEMENT   OR   ELEMENT
+ELEMENT Reaction
+ELEMENT Date recorded
 
-## SECTION Diagnoses [0..*]
-  ### EVALUATION Problem/diagnosis summary [0..*]
-  openEHR-EHR-EVALUATION.problem_diagnosis.v1
-    * ELEMENT Diagnosis [1..1]
-    * ELEMENT Clinical description
-    * ELEMENT Date/time clinically recognised
-    * ELEMENT Comment
-    * ELEMENT Last updated
+### SECTION Diagnoses [0..*]
+#### EVALUATION Problem/diagnosis summary [0..*]
+openEHR-EHR-EVALUATION.problem_diagnosis.v1
+ELEMENT Diagnosis [1..1]
+ELEMENT Clinical description
+ELEMENT Date/time clinically recognised
+ELEMENT Comment
+ELEMENT Last updated
 
-## SECTION Problems and issues [0..*]
-  ### EVALUATION Problem/diagnosis summary [0..*]
-  openEHR-EHR-EVALUATION.problem_diagnosis.v1
-    * ELEMENT Diagnosis [1..1]
-    * ELEMENT Clinical description
-    * ELEMENT Date/time clinically recognised
-    * ELEMENT Comment
-    * ELEMENT Last updated
+### SECTION Problems and issues [0..*]
+#### EVALUATION Problem/diagnosis summary [0..*]
+openEHR-EHR-EVALUATION.problem_diagnosis.v1
+ELEMENT Diagnosis [1..1]
+ELEMENT Clinical description
+ELEMENT Date/time clinically recognised
+ELEMENT Comment
+ELEMENT Last updated
 
-## SECTION Clinical Summary [0..*]
-  ### EVALUATION Clinical Synopsis [0..*]
-  openEHR-EHR-EVALUATION.clinical_synopsis.v1
-    * ELEMENT Summary [1..1]
+### SECTION Clinical Summary [0..*]
+#### EVALUATION Clinical Synopsis [0..*]
+openEHR-EHR-EVALUATION.clinical_synopsis.v1
+ELEMENT Summary [1..1]
