@@ -21,6 +21,10 @@ To try this application:
 * You can also use the Django shell (`python manage.py shell` to manipulate the new classes.)
 
 -----
+## Screenshot
+![screenshot](screenshot.png)
+
+-----
 
 # Template: IDCR Transfer of Care summary (minimal)
 (Human-readable transliteration)
