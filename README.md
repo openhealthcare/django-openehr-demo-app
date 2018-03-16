@@ -2,6 +2,8 @@
 
 Experimental | Not officially supported by OHCUK
 
+![supported_by_apperta_lores.png](https://github.com/AppertaFoundation/apperta-image-assets/blob/master/supported_by_apperta_lores.png)
+
 [Try out the live demo](https://djopenehr.herokuapp.com/IDCR-transfer-of-care/)
 
 This repository contains a demo application for the [django-openehr](https://pypi.python.org/pypi/django_openehr) models library.
